@@ -1,0 +1,15 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.img {
+  background-image: url("../assets/img/portada.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.vp-50 {
+  min-height: 100%;
+  max-height: auto;
+}

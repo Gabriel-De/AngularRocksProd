@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="col-12 text-center mt-5">
+      <h1 class="title">Top Five Bands</h1>
+    </div>
+    <div class="row mt-5 flex-column align-items-center text-center">
+      <mat-card class="col-10 col-sm-10 col-md-10 col-lg-4 mt-2 bg-color cursor" *ngFor="let band of bands" routerLink="/detail/{{band.id}}">
+        <span class="band" >{{band.name}}</span>
+      </mat-card>
+    </div>
+  
+  </div>

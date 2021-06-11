@@ -1,0 +1,125 @@
+<div class="container-fluid mt-3" *ngIf="band">
+  <div class="row mt-1 mb-1">
+    <div class="col-12 text-right">
+      <button mat-raised-button (click)="goBack()">Go back</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mt-1 mb-2 text-center">
+      <mat-card class="title">{{band.name}}</mat-card>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <mat-tab-group animationDuration="2000ms">
+        <!-- Origin -->
+        <mat-tab label="Origin">
+          <div class="row p-5">
+            <h1 class="">{{ band.origin }}</h1>
+          </div>
+        </mat-tab>
+        <!-- Members -->
+        <mat-tab label="Members">
+          <div class="row p-5">
+            <h1>{{ band.members }}</h1>
+          </div>
+        </mat-tab>
+        <!-- Website -->
+        <mat-tab label="Website">
+          <div class="row p-5">
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip routerLink="/detail/{{ band.id }}"
+                ><a class="card-link" href="{{ band.sitioWeb }}"
+                  >Sitio Web</a
+                ></mat-chip
+              >
+            </mat-chip-list>
+          </div>
+        </mat-tab>
+        <!-- History -->
+        <mat-tab label="History">
+          <div class="row p-5">
+            <h1 class="bio">{{ band.bio }}</h1>
+          </div>
+        </mat-tab>
+        <!-- Video -->
+        <mat-tab label="Video">
+          <div class="row p-5">
+            <div class="embed-responsive embed-responsive-21by9 vid">
+              <iframe
+                class="embed-responsive-item vid"
+                [src]="band.video | domseguro"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </mat-tab>
+        <!-- Edit -->
+        <mat-tab label="Edit">
+          <div class="row p-5">
+            <div class="col-12">
+              <div class="row text-center">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                  <mat-form-field appearance="outline" [style.fontSize.px] = 20>
+                    <mat-label for="band-name">Band name</mat-label>
+                    <input
+                      matInput
+                      id="band-name"
+                      [(ngModel)]="band.name"
+                      placeholder="name"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                  <mat-form-field appearance="outline" [style.fontSize.px] = 20>
+                    <mat-label for="band-members">members</mat-label>
+                    <input
+                      matInput
+                      id="band-members"
+                      [(ngModel)]="band.members"
+                      placeholder="members"
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3">
+                  <mat-form-field appearance="outline" [style.fontSize.px] = 20>
+                    <mat-label for="band-bio">History</mat-label>
+                    <textarea
+                      matInput
+                      id="band-bio"
+                      [(ngModel)]="band.bio"
+                      placeholder="bio"
+                    ></textarea>
+                    <!-- <input matInput id="band-bio" [(ngModel)]="band.bio" placeholder="bio"> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mt-3">
+                  <mat-form-field appearance="outline" [style.fontSize.px] = 20>
+                    <mat-label for="band-img">Photo</mat-label>
+                    <!-- <textarea matInput id="band-img" [(ngModel)]="band.img" placeholder="img"></textarea> -->
+                    <input
+                      matInput
+                      id="band-img"
+                      [(ngModel)]="band.img"
+                      placeholder="img"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-5 text-center">
+              <button mat-raised-button (click)="save()">Save</button>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <!-- Imagen -->
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+      <img [src]="band.img" class="card-img" alt="foto/{{ band.name }}" />
+    </div>
+  </div>
+</div>

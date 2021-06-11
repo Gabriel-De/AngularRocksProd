@@ -1,0 +1,26 @@
+<div class="container-fluid justify-content-center fixe">
+  <div class="col-12">
+    <h1 class="text-center mt-5 title">Band search</h1>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center mt-5">
+      <mat-form-field appearance="outline" [style.fontSize.px] = 20>
+        <mat-label for="search-box">Band Search</mat-label>
+        <input matInput #searchBox id="search-box" (input)="search(searchBox.value)">
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div class="row d-flex flex-wrap justify-content-center">
+  <div class="col-12 d-flex flex-wrap justify-content-center mb-4">
+    <mat-card class="example-card mt-5 mr-5 ml-5" *ngFor="let band of bands$ | async">
+      <mat-card-header>
+        <mat-card-title>{{band.name}}</mat-card-title>
+      </mat-card-header>
+      <img class="img" mat-card-image src="{{band.img}}" alt="Photo band">
+      <mat-card-actions class="text-center">
+        <button mat-raised-button routerLink="/detail/{{band.id}}">+ INFO</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

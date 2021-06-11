@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="col-12 text-center mt-5">
+    <h1 class="title">Bands list</h1>
+  </div>
+
+  <div class="row mt-5 flex-column align-items-center text-center">
+    <mat-card class="col-10 col-sm-10 col-md-10 col-lg-4 mt-2 bg-color" *ngFor="let band of bands">
+      <span class="band">{{band.name}}</span>
+      <mat-card-actions class="d-flex justify-content-center">
+        <mat-chip-list aria-label="Fish selection">
+          <mat-chip routerLink="/detail/{{band.id}}">+ Info</mat-chip>
+          <mat-chip class="chip-color-red delete" title="delete band" (click)="delete(band)">Delete</mat-chip>
+        </mat-chip-list>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>
