@@ -9,13 +9,14 @@ import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full'},
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
   { path: 'bands', component: BandsComponent },
   { path: 'top', component: TopFiveComponent },
   { path: 'detail/:id', component: BandDetailComponent },
   { path: 'search', component: BandSearchComponent },
-  { path: 'new', component: BandNewComponent }
+  { path: 'new', component: BandNewComponent },
+  { path: '**', redirectTo: 'home', pathMatch: 'full'},
 
 ];
 
