@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: BandDetailComponent },
   { path: 'search', component: BandSearchComponent },
   { path: 'new', component: BandNewComponent },
-  { path: '**', redirectTo: 'home', pathMatch: 'full'},
+  { path: '**', redirectTo: 'home', pathMatch: 'full'}
 
 ];
 
